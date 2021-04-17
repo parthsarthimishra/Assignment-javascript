@@ -1,0 +1,91 @@
+<!doctype html><html>
+<head>
+<title>Marbles | JavaScript</title>
+<meta name="keywords" content="javascript resources examples program code samples information introduction beginner newbie novice learn help exercise assignment">
+<meta name="description" content="Assignment for beginners learning JavaScript.">
+
+<link rel="stylesheet" href="js16.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+</head>
+<body>
+
+<div id="outerWrapper"><div id="innerWrapper">
+
+
+
+
+
+<table>
+
+
+<tr valign="top" align="center"><td>
+<img id="img1" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<img id="img2" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+</td></tr>
+
+<tr valign="top" align="center"><td>
+&nbsp;<br><br>
+</td></tr>
+
+
+<tr valign="top" align="center"><td>
+<img id="img6" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<img id="img" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<img id="img3" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+</td></tr>
+
+<tr valign="top" align="center"><td>
+&nbsp;<br><br>
+</td></tr>
+
+
+
+<tr valign="top" align="center"><td>
+<img id="img5" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<img  id="img4" src="http://www.webhammer.com/javascript/materials/marble1.jpg">
+</td></tr>
+
+
+</table>
+
+</div>
+
+<script>
+    var x=0;
+    
+   var myvar= setInterval(animate, 1000);
+    function animate(){
+        if(x==6){
+            x=0;
+            document.getElementById("img"+6).src="http://www.webhammer.com/javascript/materials/marble1.jpg";
+        }
+        x=x+1;
+        document.getElementById("img"+x).src="marble1.jpg";
+        for(var i=(x-1);i>0;i--){
+            console.log("inside 1");
+            document.getElementById("img"+i).src="http://www.webhammer.com/javascript/materials/marble1.jpg";
+        }
+        for(var j=(x+1);j<6;j++){
+            console.log("inside2");
+            document.getElementById("img"+j).src="http://www.webhammer.com/javascript/materials/marble1.jpg";
+        }
+    }
+</script>
+   
+</div></div>
+
+</body>
+</html>

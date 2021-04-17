@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mystyle {
+          border:2px solid red;
+        }
+        </style>
+</head>
+<body>
+    <form>
+        <label for="email">E-mail</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="password">Password</label><br>
+        <input type="text" id="password" name="password"><br>
+    </form>
+    <button onclick="submit()">submit</button>
+    <script>
+        var email= document.getElementById('email');
+        function submit(){
+           
+           
+    console.log("name is blurred");
+    let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+    let mail = email.value;
+    console.log(regex,mail);
+    if(regex.test(mail)){
+        console.log('matched');
+        document.getElementById("email").classList.remove("mystyle");
+        post();
+    }
+    else{
+        console.log('no match');
+        document.getElementById("email").classList.add("mystyle");
+    }
+
+
+
+
+        }
+        function post()
+        {       
+               var object= new XMLHttpRequest();
+         
+                object.open("POST", "https://reqres.in/api/login", true);
+                object.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
+                object.send(`email=${email.value}&password=${password.value}`);
+                object.onreadystatechange =function()
+                {
+                    if(this.readyState == 4 && this.status == 200){  //this code from w3 schools
+                        var obj = JSON.parse(this.responseText);
+                        console.log(obj);
+                        alert("Success", obj);
+                    }
+                    else if(this.readyState == 4 && this.status != 200){
+                    alert("Failure");
+                    }
+                }
+                
+            
+        }
+    </script>
+</body>
+</html>

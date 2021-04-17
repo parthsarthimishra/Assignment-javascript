@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>JavaScript Image Rollovers</title>
+<script>
+   
+	function move_in(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+
+	function move_out(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+
+</script>
+</head>
+<body>
+    <img src="1.jpeg" onmouseover=move_in('image1','2.jpeg') name= "image1" id="img">
+
+ 
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="mytable" class="mytable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>avatar</th>
+                <th>email</th>
+                <th>first name</th>
+                <th>last name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        console.log("working");
+        const rankingsBody = document.querySelector("#mytable > tbody");
+        function loadRankings(){
+            const request = new XMLHttpRequest();
+            request.open("get","https://reqres.in/api/users",true);
+            console.log("reached check1");
+            request.onload=() =>{
+                
+                const json= JSON.parse(request.responseText);
+                populateRankings(json);
+                console.log("reached check1");
+                console.log("reached check1");
+            }
+
+            request.send();
+        }
+        function populateRankings(json){
+          while(rankingsBody.firstChild){
+              rankingsBody.removeChild(rankingsBody.firstChild);
+          }
+
+          //populate table
+         // json.forEach((row)=>{
+         //     const tr= document.createElement("tr");
+          //  row.forEach((cell)=>{
+          //      const td= document.createElement("td");
+           //     td.textContent=cell;
+           //     tr.appendChild(td);
+          //  })
+          //  rankingsBody.appendChild(tr);
+
+         // })
+var myData = json.data;
+var x="";
+for(var i=0;i<myData.length;i++){
+    x=x+"<tr>"+"<td>"+ myData[i].id +"</td>"+"<td>"+ '<img src="'+myData[i].avatar+'">' +"</td>"+"<td>"+ myData[i].email +"</td>"+"<td>"+ myData[i].first_name +"</td>"+"<td>"+ myData[i].last_name +"</td>"+"</tr>";
+}document.getElementById("mytable").innerHTML+=x;
+       }
+
+        document.addEventListener("DOMContentLoaded",()=> {loadRankings()});
+    </script>
+
+
+</body>
+</html>

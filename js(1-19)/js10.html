@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>JavaScript Image Rollovers</title>
+<script>
+   
+	function move_in(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+
+	function move_out(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+
+function move_all(){
+    document.getElementsByTagName("img")[0].src="2.jpeg";
+    document.getElementsByTagName("img")[1].src="2.jpeg";
+    document.getElementsByTagName("img")[2].src="2.jpeg";
+}
+</script>
+</head>
+<body>
+    <img src="1.jpeg" onmouseover="move_in('image1','2.jpeg')" name= "image1" id="img">
+    <img src="2.jpeg" onmouseover="move_in('image2','3.jpeg')" name= "image2" id="img">
+    <img src="3.jpeg" onmouseover="move_in"('image3','1.jpeg')" name= "image3" id="img">
+    <img src="1.jpeg" onmouseover="move_all()" name= "image4" id="img">
+
+ 
+</body>
+</html>
