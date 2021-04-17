@@ -9,7 +9,7 @@ var temp =0;
 name.addEventListener('blur',()=>{
     console.log("name is blurred")
 
-    let regex=/(^[a-zA-Z][0-9a-zA-Z])/;
+    let regex=/^[a-z ,.'-]+$/;
     let str= name.value;
     console.log(regex,str);
     if(regex.test(str)){
