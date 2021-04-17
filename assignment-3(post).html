@@ -16,7 +16,7 @@
         <label for="email">E-mail</label><br>
         <input type="text" id="email" name="email"><br>
         <label for="password">Password</label><br>
-        <input type="text" id="password" name="password"><br>
+        <input type="password" id="password" name="password"><br>
     </form>
     <button onclick="submit()">submit</button>
     <script>
@@ -54,10 +54,10 @@
                     if(this.readyState == 4 && this.status == 200){  //this code from w3 schools
                         var obj = JSON.parse(this.responseText);
                         console.log(obj);
-                        alert("Success", obj);
+                        alert("Successful", obj);
                     }
                     else if(this.readyState == 4 && this.status != 200){
-                    alert("Failure");
+                    alert("Please enter correct credentials");
                     }
                 }
                 

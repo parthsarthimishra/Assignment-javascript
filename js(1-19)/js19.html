@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment19</title>
+    </head>
+    <body onload="check_cookies()" >
+        <div id="visits"></div>
+        <div id="time"></div>
+        <script>
+            
+            function check_cookies() {
+                var user = get_cookie("username");
+                var lastVisit = get_cookie("lastVisit");
+                var freq = get_cookie("freq");
+                
+
+
+                if(lastVisit!=""){
+                    document.getElementById("time").innerHTML= "last visit: "+lastVisit;
+                    lastVisit = new Date();
+                    set_cookies("lastVisit",lastVisit);
+                }
+                else{
+                    document.getElementById("time").innerHTML="First visit";
+                    lastVisit = new Date();
+                    set_cookies("lastVisit",lastVisit);
+                }
+               
+
+
+                if(freq!=""){
+                    freq++;
+                    document.getElementById("visits").innerHTML="You have visited "+ (freq) +" time.";
+                    set_cookies("freq",freq);
+                }
+                else{
+                    freq = 1;
+                    set_cookies("freq",freq);
+                }
+               
+
+
+                if (user != "") {
+                    alert("Welcome back " + user);
+                } 
+                else {
+                    alert("You are visiting the first time!!")
+                   
+                    if (user != "" && user != null) 
+                    {
+                        set_cookie("username", user, 365);
+                    }
+                }
+            }
+
+            function set_cookie(cname, cvalue, no_days) {
+                var d = new Date();
+                d.setTime(d.getTime() + (no_days * 24 * 60 * 60 * 1000));
+                var lastVisit = d.getTime();
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+            function set_cookies(cname, cvalue) {
+                document.cookie = cname + "=" + cvalue + ";";
+            }
+
+            function get_cookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            
+        </script>
+    </body>
+</html>
