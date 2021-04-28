@@ -90,7 +90,7 @@ city.addEventListener('blur',()=>{
 
 password.addEventListener('blur',()=>{
     console.log("password is blurred")
-    let regex=/^(?=.\d)(?=.[!@#$%^&])(?=.[a-z])(?=.*[A-Z]).{8,}$/;
+    let regex=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     let pass= password.value;
     console.log(regex,pass);
     if(regex.test(pass)){
